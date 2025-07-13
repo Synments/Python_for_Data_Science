@@ -149,3 +149,86 @@ temp_list = ["one", "two", "three"]
 print(f"\n清空前： {temp_list}")
 temp_list.clear()
 print(f"清空後： {temp_list}")
+
+# --- 元組 (Tuples) - 創建範例 --- 
+print("\n--- 元組 (Tuples) - 創建範例 ---")
+
+# 創建一個包含數字的元組
+coordinates = (10, 20)
+print(f"座標元組： {coordinates}")
+print(f"型別：{type(coordinates)}")
+
+# 創建一個包含不同資料型別的元組
+person_info = ("Bob", 30, False)
+print(f"個人資料元組： {person_info}")
+
+# 創建一個空元組
+empty_tuple = ()
+print(f"空元組： {empty_tuple}")
+
+# --- 元組 (Tuples) - 單一元素與存取範例 --- +
+print("\n--- 元組 (Tuples) - 單一元素與存取範例 ---")
+# 1. 創建單一元素的元組 (注意逗號是必須的！) 
+# 有逗號，這才是元組
+single_element_tuple = ("hello",)
+print(f"單一元素的元組： {single_element_tuple}")
+print(f"型別 (有逗號)： {type(single_element_tuple)}")
+
+# 沒有逗號，這不是元組，只是一個字串
+not_a_tuple = ("hello")
+print(f"沒有逗號的單一元素： {not_a_tuple}")
+print(f"型別 (沒逗號)： {type(not_a_tuple)}")
+
+# 2. 存取元組元素 (和列表一樣，使用索引) 
+# 使用之前創建的 coordinates = (10, 20) 和 person_info = ("Bob", 30, False)
+print(f"\n從座標元組 {coordinates} 存取：")
+print(f"X 值 (索引 0)： {coordinates[0]}") # 存取第一個元素
+
+print(f"\n從個人資訊元組 {person_info} 存取：")
+print(f"名字 (索引 0)： {person_info[0]}")
+print(f"是否是學生 (索引 2)： {person_info[2]}")
+print(f"最後一個元素 (索引 -1)： {person_info[-1]}")
+print(f"倒數第二個元素 (索引 -2)： {person_info[-2]}")
+
+# 執行下面這行程式碼會報錯，因為元組不可變！ 
+# 請不要解除註解並執行它，僅為演示其不可變特性。 
+# coordinates[0] = 30 # 這行會報錯：TypeError: 'tuple' object does not support item assignment 
+# print(f"嘗試修改元組後: {coordinates}")
+
+# --- 元組 (Tuples) - 其他操作範例 --- 
+print("\n--- 元組 (Tuples) - 其他操作範例 ---")
+
+my_tuple = (1, 2, 3, 4, 5) 
+another_tuple = (6, 7, 8)
+
+# 1. 檢查元素是否存在 (in 關鍵字)
+print(f"原始元組： {my_tuple}")
+print(f"2 是否在 my_tuple 中？ {2 in my_tuple}")
+print(f"10 是否在 my_tuple 中？ {10 in my_tuple}")
+
+# 2. 獲取元組長度 (len() 函式)
+print(f"my_tuple 的長度： {len(my_tuple)}")
+
+# 3. 元組的連接 (+) 
+# 會創建一個新的元組
+combined_tuple = my_tuple + another_tuple
+print(f"連接後的元組： {combined_tuple}")
+print(f"原始 my_tuple 是否改變？ {my_tuple}") # 沒有改變
+
+# 4. 元組的重複 (*) 
+# 會創建一個重複元素的新元組
+repeated_tuple = ("hello",) * 3
+print(f"重複後的元組： {repeated_tuple}")
+
+# 5. 元組解包 (Tuple Unpacking) - 非常有用！ 
+# 如果知道元組的元素數量，可以直接將它們賦值給多個變數。
+coordinates_tuple = (100, 200)
+x, y = coordinates_tuple # 將元組的元素分別賦值給 x 和 y
+print(f"\n解包座標：x = {x}, y = {y}")
+
+# 常見應用：交換變數的值 (不需中間變數)
+a = 5
+b = 10
+print(f"交換前： a = {a}, b = {b}")
+a, b = b, a # Python 的魔法！右邊會先創建一個臨時的元組 (10, 5)
+print(f"交換後： a = {a}, b = {b}")
