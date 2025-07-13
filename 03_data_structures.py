@@ -297,3 +297,82 @@ print(f"所有鍵值對： {person.items()}")
 # 可以將這些視圖轉換成列表，以便於查看和進一步操作
 print(f"所有鍵 (列表形式)： {list(person.keys())}")
 print(f"所有值 (列表形式)： {list(person.values())}")
+
+# --- 集合 (Sets) - 創建與基本操作範例 --- 
+print("\n--- 集合 (Sets) - 創建與基本操作範例 ---") 
+
+# 1. 創建集合 
+# 使用花括號 {} 創建 (注意：空集合不能直接用 {}，那會是字典)
+my_set = {"apple", "banana", "cherry"}
+print(f"水果集合： {my_set}")
+print(f"型別： {type(my_set)}")
+
+# 創建包含重複元素的列表，然後轉為集合，看它如何自動去重
+numbers_with_duplicates = [1, 2, 2, 3, 4, 4, 5]
+unique_numbers = set(numbers_with_duplicates) # 使用 set() 函式從列表創建集合
+print(f"從列表 {numbers_with_duplicates} 創建的集合 (去重後)： {unique_numbers}")
+
+# 創建空集合 (必須使用 set() 函式)
+empty_set = set()
+print(f"空集合： {empty_set}")
+print(f"型別： {type(empty_set)}")
+
+# 2. 新增元素 (add()) 
+# add() 方法用於向集合中添加一個元素。如果元素已存在，不會有任何效果。
+my_set.add("orange")
+print(f"新增 'orange' 後： {my_set}")
+my_set.add("apple") # 嘗試添加重複元素，不會改變集合
+print(f"再次新增 'apple' 後 (無變化)： {my_set}")
+
+# 3. 刪除元素 (remove() 或 discard()) 
+# remove()：刪除指定元素。如果元素不存在，會報錯 (KeyError)。
+my_set.remove("banana")
+print(f"remove 'banana' 後： {my_set}")
+# my_set.remove("grape") # 解除註解會報錯：KeyError: 'grape'
+
+# discard()：刪除指定元素。如果元素不存在，不會報錯，只是沒有任何效果。
+my_set.discard("cherry")
+print(f"discard 'cherry' 後： {my_set}")
+my_set.discard("grape") # 嘗試丟棄不存在的元素，不報錯
+print(f"discard 'grape' 後 (無變化)： {my_set}")
+
+# 4. 檢查元素是否存在 (in 關鍵字)
+print(f"\n'orange' 是否在集合中？ {'orange' in my_set}") # True
+print(f"'banana' 是否在集合中？ {'banana' in my_set}") # False (因為已經被移除了)
+
+# 5. 獲取集合長度 (len() 函式)
+print(f"my_set 的長度： {len(my_set)}")
+
+
+# --- 集合 (Sets) - 集合運算範例 --- 
+print("\n--- 集合 (Sets) - 集合運算範例 ---") 
+
+set1 = {1, 2, 3, 4} 
+set2 = {3, 4, 5, 6}
+
+print(f"集合 1: {set1}") 
+print(f"集合 2: {set2}")
+
+# 1. 聯集 (Union) 
+# 包含 set1 或 set2 中的所有唯一元素
+union_set = set1 | set2 # 使用 | 運算子
+# union_set = set1.union(set2) # 或使用 .union() 方法
+print(f"聯集 (set1 | set2)： {union_set}")
+
+# 2. 交集 (Intersection) 
+# 包含 set1 和 set2 中都存在的元素
+intersection_set = set1 & set2  # 使用 & 運算子
+# intersection_set = set1.intersection(set2) # 或使用 .intersection() 方法
+print(f"交集 (set1 & set2)： {intersection_set}")
+
+# 3. 差集 (Difference) 
+# 包含只在 set1 中存在，但不在 set2 中的元素
+difference_set = set1 - set2  # 使用 - 運算子
+# difference_set = set1.difference(set2) # 或使用 .difference() 方法
+print(f"差集 (set1 - set2)： {difference_set}")
+
+# 4. 對稱差集 (Symmetric Difference) 
+# 包含在 set1 或 set2 中，但不同時在兩者中的元素
+symmetric_difference_set = set1 ^ set2  # 使用 ^ 運算子
+# symmetric_difference_set = set1.symmetric_difference(set2) # 或使用 .symmetric_difference() 方法
+print(f"對稱差集 (set1 ^ set2)： {symmetric_difference_set}")
