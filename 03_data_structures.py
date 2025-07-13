@@ -232,3 +232,68 @@ b = 10
 print(f"交換前： a = {a}, b = {b}")
 a, b = b, a # Python 的魔法！右邊會先創建一個臨時的元組 (10, 5)
 print(f"交換後： a = {a}, b = {b}")
+
+# --- 字典 (Dictionaries) - 創建與存取範例 --- 
+print("\n--- 字典 (Dictionaries) - 創建與存取範例 ---") 
+
+# 1. 創建字典 
+# 創建一個表示個人資訊的字典
+person = {
+	"name": "Sean",
+	"age": 30,
+	"city": "Taipei",
+	"is_student": False
+}
+print(f"個人資訊字典：{person}")
+print(f"型別： {type(person)}")
+
+# 創建一個空字典
+empty_dict = {}
+print(f"空字典： {empty_dict}")
+
+# 2. 存取字典的值 (透過鍵)
+print(f"\n存取字典元素：")
+print(f"姓名： {person['name']}") # 訪問 'name' 鍵對應的值
+print(f"年齡： {person['age']}") # 訪問 'age' 鍵對應的值
+print(f"城市： {person['city']}") # 訪問 'city' 鍵對應的值
+
+# 如果嘗試存取不存在的鍵，會報錯 (KeyError) 
+# print(person['country']) # 解除註解會報錯：KeyError: 'country'
+
+# --- 字典 (Dictionaries) - 常見操作範例 --- 
+print("\n--- 字典 (Dictionaries) - 常見操作範例 ---") 
+# 使用之前創建的個人資訊字典 
+# person = {"name": "Sean", "age": 30, "city": "Taipei", "is_student": False}
+print(f"原始字典： {person}")
+
+# 1. 新增/修改鍵值對 
+# 新增一個新的鍵值對
+person["occupation"] = "Data Scientist"
+print(f"新增 'occupation' 後： {person}")
+
+# 修改已存在的鍵的值
+person["age"] = 31
+print(f"修改 'age' 後： {person}")
+
+# 2. 刪除鍵值對 
+# 使用 del 語句刪除
+del person["is_student"]
+print(f"del 'is_student' 後： {person}")
+
+# 使用 pop() 方法刪除並回傳值
+removed_city = person.pop("city")
+print(f"pop 'city' 後： {person}")
+print(f"被 pop 掉的城市： {removed_city}")
+
+# 3. 檢查鍵是否存在 (in 關鍵字)
+print(f"\n'name' 是否在字典中？ {'name' in person}")
+print(f"'city' 是否在字典中？ {'city' in person}")
+
+# 4. 獲取所有鍵/值/鍵值對
+print(f"\n所有鍵：{person.keys()}")
+print(f"所有值： {person.values()}")
+print(f"所有鍵值對： {person.items()}")
+
+# 可以將這些視圖轉換成列表，以便於查看和進一步操作
+print(f"所有鍵 (列表形式)： {list(person.keys())}")
+print(f"所有值 (列表形式)： {list(person.values())}")
